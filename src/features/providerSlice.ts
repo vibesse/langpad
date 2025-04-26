@@ -22,6 +22,7 @@ interface ProviderState {
 }
 
 // Helper function to load initial state for a provider
+// @ts-expect-error providerName is not used
 const loadInitialProviderState = (providerName: string, storageKey: string): ProviderInfo => {
   const storedKey = localStorage.getItem(storageKey);
   return {

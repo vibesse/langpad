@@ -6,7 +6,6 @@ import {
   _addActionInternal, // Import the internal action adder
   cloneActionWithNewIds, // Import the cloning helper
   selectActionById, // Import selector to get action data
-  Action as ActionState, // Import Action type
 } from './actionsSlice';
 
 // Define the structure for steps which will contain actions
@@ -94,15 +93,6 @@ export const flowsSlice = createSlice({
     setActiveFlow: (state, action: PayloadAction<string>) => {
       state.activeFlowId = action.payload;
     },
-
-    // Step operations
-    // REMOVED old addStep reducer
-    // addStep: (state, action: PayloadAction<{ flowId: string }>) => {
-    //   const flow = state.flows.byId[action.payload.flowId];
-    //   if (flow) {
-    //     flow.steps.push(createDefaultStep()); // Old way
-    //   }
-    // },
 
     // Internal reducer to add a step with pre-defined ID and action
     _addStepInternal: (

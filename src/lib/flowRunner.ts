@@ -364,7 +364,7 @@ export class FlowRunner {
           return contentItem;
         }),
       }));
-
+      /*
       // Prepare structured output, replacing variables
       let processedStructuredOutput: string | undefined = undefined;
       if (action.structured_output) {
@@ -377,7 +377,7 @@ export class FlowRunner {
         // TODO: Decide if structured output needs to be passed to the API
         // Currently, it seems like it's a definition for expected output, not input.
         // If it *is* input, it needs to be added to openaiMessages or handled differently.
-      }
+      }*/
 
       // Execute the action with OpenAI API
       const startTime = Date.now();
@@ -470,13 +470,13 @@ export class FlowRunner {
     level: 'info' | 'error' | 'warn' | 'debug',
     runId: string | null,
     message: string,
-    isStreamingUpdate = false,
   ): void {
     const timestamp = new Date().toISOString();
     const logContent = runId ? `[Run: ${runId}] ${message}` : message;
 
     store.dispatch(
       addLog({
+        // @ts-expect-error id for future
         id: generateLogId(),
         timestamp,
         level,
