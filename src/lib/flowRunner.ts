@@ -416,7 +416,6 @@ export class FlowRunner {
             'info',
             runId,
             `[Step ${stepIndex + 1}, Action ${actionIndex + 1}] Stream: ${chunk}`,
-            true,
           );
         },
       );
